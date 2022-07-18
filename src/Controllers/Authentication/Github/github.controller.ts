@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { controller } from "./controller.js";
+import { controller } from "../../controller.js";
 
 const GITHUB_URL = "https://github.com/login/oauth/authorize"
 const { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET } = process.env
