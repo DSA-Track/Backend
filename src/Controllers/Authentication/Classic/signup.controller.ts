@@ -1,7 +1,7 @@
-import User, { UserI } from "../../../Models/User.model";
-import sendError from "../../../Util/sendError";
-import sendSuccess from "../../../Util/sendSuccess";
-import { controller } from "../../controller";
+import User, { UserI } from "../../../Models/User.model.js";
+import sendError from "../../../Util/sendError.js";
+import sendSuccess from "../../../Util/sendSuccess.js";
+import { controller } from "../../controller.js";
 
 const USERNAME_EXISTS_ERROR = "Username already in use :/";
 const EMAIL_EXISTS_ERROR = "Email already in use, Try logging in instead :)";

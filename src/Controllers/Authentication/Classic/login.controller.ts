@@ -1,9 +1,9 @@
 import { compare } from 'bcrypt';
-import User from "../../../Models/User.model";
-import genProfile from '../../../Util/genProfile';
-import sendError from '../../../Util/sendError';
-import sendSuccess from '../../../Util/sendSuccess';
-import { controller } from "../../controller";
+import User from "../../../Models/User.model.js";
+import genProfile from '../../../Util/genProfile.js';
+import sendError from '../../../Util/sendError.js';
+import sendSuccess from '../../../Util/sendSuccess.js';
+import { controller } from "../../controller.js";
 
 
 const ERROR_MESSAGE = "Incorrect User Information."
@@ -13,6 +13,7 @@ const SUCCESS_MESSAGE = "Login Successfull."
 const Login: controller = async (req, res) => {
 
     const { username_or_email, password } = req.body
+    if (!username_or_email || !password) return res.sendStatus(400);
     try {
         const userExists = await User.findOne({ $or: [{ email: username_or_email }, { username: username_or_email }] }).lean();
 

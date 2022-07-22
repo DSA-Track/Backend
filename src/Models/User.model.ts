@@ -1,15 +1,35 @@
 import { hash } from 'bcrypt';
-import { model, Schema } from 'mongoose';
+import mongoose from 'mongoose';
+const { model, Schema } = mongoose;
+
+type questionId = string
+
+type bookmarkI = {
+    name: string,
+    questions: questionId[]
+}
 
 export type UserI = {
     username: string,
     email: string,
     password: string,
     phoneNumber?: string
-
+    bookmarks: bookmarkI[]
 
 }
 
+const BookMarkSchema = new Schema<bookmarkI>({
+    name: {
+        type: String,
+        required: true,
+    },
+    questions: {
+        type: [String],
+        default: []
+    }
+}, {
+    _id: false
+})
 
 const UserSchema = new Schema<UserI>({
     username: {
@@ -35,11 +55,17 @@ const UserSchema = new Schema<UserI>({
         trim: true,
         required: false,
         unique: true
+    },
+    bookmarks: {
+        type: [BookMarkSchema],
+        default: [{ name: "Easy", questions: [] }, { name: "Medium", questions: [] }, { name: "Difficult", questions: [] },]
     }
 
 }, {
     timestamps: true
 })
+
+
 
 UserSchema.pre('save', async function (next) {
     this.password = await hash(this.password, 10);

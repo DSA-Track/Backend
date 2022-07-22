@@ -1,11 +1,14 @@
 import cors from 'cors'
-import express from "express"
+import express, { json, urlencoded } from "express"
 import helmet from 'helmet'
 import morgan from 'morgan'
 
 
 const ExpressConfig = () => {
     const App = express()
+
+    App.use(urlencoded({ extended: false }))
+    App.use(json())
 
     App.use(cors({ credentials: true, origin: true }))
     App.use(helmet())

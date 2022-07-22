@@ -1,2 +1,25 @@
 #GET
 https://github.com/login/oauth/authorize?client_id=16c32a413206400e4229
+
+###
+
+#
+POST http://localhost:5000
+Content-Type: application/json
+
+{
+    "username_or_email":"Aryan",
+    "password":"12345678"
+}
+
+###
+
+#
+POST http://localhost:5000/signup
+Content-Type: application/json
+
+{
+    "username":"Aryan",
+    "email":"aryan2563737@gmail.com",
+    "password":"12345678"
+}
