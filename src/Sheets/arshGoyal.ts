@@ -1,4 +1,6 @@
-export const arshGoyal = [
+import { question } from "./merged"
+
+export const arshGoyalSheet: question[] = [
     {
         "QuestionName": "find the duplicate number",
         "Link": "https://leetcode.com/problems/find-the-duplicate-number/",
@@ -2393,4 +2395,4 @@ export const arshGoyal = [
     }
 ]
 
-export const length = arshGoyal.length
+export const length = arshGoyalSheet.length

@@ -1,4 +1,6 @@
-export const apnaCollegeQuestions = [
+import { question } from "./merged"
+
+export const apnaCollegeQuestions: question[] = [
     {
         "QuestionName": "Maximum and Minimum Element in an Array",
         "Link": "https://www.geeksforgeeks.org/maximum-and-minimum-in-an-array/",
